@@ -18,7 +18,7 @@ class YazilarModel(models.Model):
     (2) bir kategoriye ait bütün yazilara erişmek için -> related_name='yazi'  . 
     (3) Kategoriler üzerinden Tüm ona ait yazılar
     """
-    yazar = models.ForeignKey(User, on_delete = models.CASCADE,related_name='yazilar')
+    yazar = models.ForeignKey('account.CustomUserModel', on_delete = models.CASCADE,related_name='yazilar')
 
     """ (1) User tablosuna bağlayacaz çünkü ->
      (2) Yazar Üzerinden yazarın bütün yazılarına erişmek için yapıyoruz -> related_name=''

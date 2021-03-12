@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'account',
     'blog',
     #third-party
     'ckeditor',
@@ -129,3 +130,5 @@ CKEDITOR_CONFIGS = {
 
     },
 }
+
+AUTH_USER_MODEL = 'account.CustomUserModel'
