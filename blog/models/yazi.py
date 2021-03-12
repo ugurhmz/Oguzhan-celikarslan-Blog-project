@@ -1,15 +1,16 @@
 from django.db import models
 from autoslug import AutoSlugField
 from blog.models import  KategoriModel # ManyToManyField için ekledik
-from django.contrib.auth.models import User #ForeignKey için ekledik.
 from ckeditor.fields import RichTextField
+from blog.abstract_models import DateAbstractModel
 
-class YazilarModel(models.Model):
+
+
+class YazilarModel(DateAbstractModel):
     resim=models.ImageField(upload_to='yazi_resimleri') # resimleri yazi_resimleri alanına at.
     baslik = models.CharField(max_length = 250)
     icerik = RichTextField()
-    olusturulma_tarihi = models.DateTimeField(auto_now_add = True)
-    duzenlenme_tarihi = models.DateTimeField(auto_now=True) #Otomatik düzenlenme olduğunda tarih ver.
+
     slug = AutoSlugField(populate_from='baslik', unique=True)# Nereden oluşturcak slug-> 'baslik' tan olustursun
 
     kategoriler = models.ManyToManyField(KategoriModel, related_name='yazi')

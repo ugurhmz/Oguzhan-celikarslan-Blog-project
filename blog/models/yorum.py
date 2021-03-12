@@ -1,8 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import User
 from blog.models import YazilarModel
+from blog.abstract_models import  DateAbstractModel
 
-class YorumModel(models.Model):
+
+class YorumModel(DateAbstractModel):
     yazan = models.ForeignKey('account.CustomUserModel', on_delete=models.CASCADE, related_name='yorum')
     """
     (1) yazanı -> User ile eşleştiriyoruz. User üzerinden de bu kullanıcının yorumlarına erişebiliyoruz.
@@ -16,8 +17,7 @@ class YorumModel(models.Model):
     (3) yazinin yorumlarına erişmek için -> related_name='yorumlar'    """
 
     yorum = models.TextField()
-    olusturulma_tarihi = models.DateTimeField(auto_now_add=True)
-    guncellenme_tarihi=models.DateTimeField(auto_now=True)
+
 
 
     class Meta:
