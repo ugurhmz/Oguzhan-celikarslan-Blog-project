@@ -1,10 +1,10 @@
 from django.contrib import admin
-from blog.models import KategoriModel,YazilarModel,YorumModel
+from blog.models import KategoriModel,YazilarModel,YorumModel, IletisimModel
 
 
 admin.site.register(KategoriModel)
 
-#Admin Panelini özelleştirme
+#__________________________________ YazilarAdmin ______________________________
 class YazilarAdmin(admin.ModelAdmin):
     search_fields = ('baslik','icerik','olusturulma_tarihi')
     # Yazilarimin ->baslik, icerik ve olus.tarih için arama kutusu
@@ -14,10 +14,18 @@ class YazilarAdmin(admin.ModelAdmin):
 
 admin.site.register(YazilarModel,YazilarAdmin)
 
-
+#__________________________________ YorumlarAdmin______________________________
 class YorumlarAdmin(admin.ModelAdmin):
     search_fields = ('yazan__username',)  # ForeignKey ile ilişkili olduğundan 'yazan__username' şeklindeyaptık.
     list_display = ('yazan','yazi','olusturulma_tarihi','guncellenme_tarihi')
     list_display_links = ('yazi','olusturulma_tarihi')
 
 admin.site.register(YorumModel, YorumlarAdmin)
+
+
+##__________________________________ IletisimAdmin______________________________
+@admin.register(IletisimModel)
+class IletisimAdmin(admin.ModelAdmin):
+    list_display = ('email','isim_soyisim','gonderim_tarihi')
+    search_fields =('email','isim_soyisim')
+
