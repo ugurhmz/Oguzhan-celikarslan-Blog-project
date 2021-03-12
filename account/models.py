@@ -11,9 +11,9 @@ class CustomUserModel(AbstractUser): #AbbtractUser içindeki her şeye sahibim �
             # O halde 1 tanede avatar ekleyelim buraya.
 
     class Meta:
-        db_table = 'user_avatar'
-        verbose_name = 'KullanıcıResim'
-        verbose_name_plural = 'KullanıcılarResim'
+        db_table = 'user'
+        verbose_name = 'Kullanıcı'
+        verbose_name_plural = 'Kullanıcılar'
 
 
     def __str__(self):
