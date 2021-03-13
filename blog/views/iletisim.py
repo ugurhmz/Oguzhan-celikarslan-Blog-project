@@ -4,4 +4,8 @@ from django.shortcuts import render
 
 
 def iletisim(request):
-  return render(request,"pages/iletisim.html", context={})
+  context= {
+    'key':'Başlık içerik naber'
+  }
+
+  return render(request,"pages/iletisim.html", context=context)

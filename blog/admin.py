@@ -2,7 +2,6 @@ from django.contrib import admin
 from blog.models import KategoriModel,YazilarModel,YorumModel, IletisimModel
 
 
-admin.site.register(KategoriModel)
 
 #__________________________________ YazilarAdmin ______________________________
 class YazilarAdmin(admin.ModelAdmin):
@@ -29,3 +28,7 @@ class IletisimAdmin(admin.ModelAdmin):
     list_display = ('email','isim_soyisim','gonderim_tarihi')
     search_fields =('email','isim_soyisim')
 
+
+@admin.register(KategoriModel)
+class KategoriAdmin(admin.ModelAdmin):
+    search_fields = ('baslik',)

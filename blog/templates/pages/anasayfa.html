@@ -3,64 +3,35 @@
 {% block title %} Anasayfa {% endblock %}
 
 
-
-
-
-
 {% block content %}
 
-    <div class="card mb-3" >
-                  <div class="row g-0">
-                    <div class="col-md-4">
-                      <img src="{% static 'images/blog-10-600x600.jpg'  %}"
-                           class="card-img"
-                           alt="...">
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                      </div>
-                    </div>
-                    </div>
-            </div>
-
-    <div class="card mb-3" >
-                  <div class="row g-0">
-                    <div class="col-md-4">
-                      <img src="{% static 'images/blog-9-600x600.jpg'  %}"
-                           class="card-img"
-                           alt="...">
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                      </div>
-                    </div>
-                    </div>
-            </div>
+  {% for yazi in yazilar %}
 
 
-    <div class="card mb-3" >
-                  <div class="row g-0">
-                    <div class="col-md-4">
-                      <img src="{% static 'images/slider-1-1600x800.jpg'  %}"
-                           style="min-height: 200px"
-                           class="card-img img-fluid "
-                           alt="...">
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                      </div>
-                    </div>
-                    </div>
-            </div>
+<div class="container">
+<div class="card mb-3 ">
+  <img
+    src="{{ yazi.resim.url }}"
+    class="card-img-top img-fluid img" style="max-height: 400px"
+    alt="..."
+  />
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">
+      {{ yazi.icerik|safe|truncatechars_html:250 }}
+    </p>
+    <p class="card-text">
+      <small class="text-muted">{{ yazi.olusturulma_tarihi|timesince }} önce</small>
+    </p>
+  </div>
+</div>
+
+</div>
+
+
+  {% empty %}
+    <h1>Hiç yazı yok</h1>
+    {% endfor %}
 
 
     <nav aria-label="...">

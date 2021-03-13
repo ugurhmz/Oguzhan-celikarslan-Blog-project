@@ -1,5 +1,5 @@
-
-
+{% load kategori_list %}
+{% kategori_list as kategoriler %}
    <div class="col-sm-3">
                 <div class="card">
                     <div class="card-header bg-dark text-white-50">
@@ -10,9 +10,23 @@
                           <li class="list-group-item">Şifre Değiştir</li>
                           <li class="list-group-item">Yazı Ekle</li>
                           <li class="list-group-item">Yazılarım</li>
+
                           <li class="list-group-item">Çıkış</li>
 
+                            <div class="btn-group">
+                                  <button type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Kategoriler
+                                  </button>
+                                  <ul class="dropdown-menu">
+                                      {% for kategori in kategoriler %}
+                                    <li><a class="dropdown-item" href="#">{{ kategori.isim }}</a></li>
+                                        {% endfor %}
+                                  </ul>
+                         </div>
+
+
                     </ul>
+
                 </div>
 
     </div>
