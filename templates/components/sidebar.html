@@ -1,33 +1,40 @@
 {% load kategori_list %}
 {% kategori_list as kategoriler %}
    <div class="col-sm-3">
+
                 <div class="card">
                     <div class="card-header bg-dark text-white-50">
                         Menü
                     </div>
-                    <ul class="list-group list-group-flush">
-                          <li class="list-group-item" aria-current="true">Profil Düzenle</li>
-                          <li class="list-group-item">Şifre Değiştir</li>
-                          <li class="list-group-item">Yazı Ekle</li>
-                          <li class="list-group-item">Yazılarım</li>
 
-                          <li class="list-group-item">Çıkış</li>
 
-                        {% comment %}    <div class="btn-group">
-                                  <button type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Kategoriler
-                                  </button>
-                                  <ul class="dropdown-menu">
-                                      {% for kategori in kategoriler %}
-                                    <li><a class="dropdown-item" href="{% url 'kategori' kategoriSlug=kategori.slug %}">{{ kategori.isim }}</a></li>
-                                            <!-- 'kategori' ismindeki urle, kategoriSlug'ı gönderiyorum-->
+            {% if request.user.is_authenticated %}  <!-- context'ten gelen: request kısmı-->
+                    <div class="list-group">
+                          <a href="#" class="list-group-item list-group-item-action">Profil Düzenle</a>
 
-                                      {% endfor %}
-                                  </ul>
-                            </div>
-{% endcomment %}
+                          <a href="#" class="list-group-item list-group-item-action ">Şifre Değiştir</a>
+                          <a href="#" class="list-group-item list-group-item-action ">Yazı Ekle</a>
 
-                    </ul>
+                          <a class="list-group-item list-group-item-action
+
+                                {% if 'yazilarim' in request.path %} active {% endif %}"
+                             href="{% url 'yazilarim' %}">
+                              Yazılarım
+                          </a>
+
+                    </div>
+            {% else %}
+
+                    <div class="list-group" style="border-radius: 0;">
+                      <a href="#" class="list-group-item list-group-item-action bg-light text-warning">
+                          Login
+                      </a>
+
+                    </div>
+
+            {% endif %}
+
+
 
                 </div>
 
@@ -38,7 +45,8 @@
                       <ul class="list-group list-group-flush">
                         {% for kategori in kategoriler %}
                             <li><a class="list-group-item list-group-item-action text-sm-center"
-                                   href="{% url 'kategori' kategoriSlug=kategori.slug %}">{{ kategori.isim }}
+                                   href="{% url 'kategori' kategoriSlug=kategori.slug %}">
+                                {{ kategori.isim }}
                             </a></li>
                                 <!-- 'kategori' ismindeki urle, kategoriSlug'ı gönderiyorum-->
 
