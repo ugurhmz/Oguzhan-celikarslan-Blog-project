@@ -13,20 +13,38 @@
 
                           <li class="list-group-item">Çıkış</li>
 
-                            <div class="btn-group">
+                        {% comment %}    <div class="btn-group">
                                   <button type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                     Kategoriler
                                   </button>
                                   <ul class="dropdown-menu">
                                       {% for kategori in kategoriler %}
-                                    <li><a class="dropdown-item" href="#">{{ kategori.isim }}</a></li>
-                                        {% endfor %}
-                                  </ul>
-                         </div>
+                                    <li><a class="dropdown-item" href="{% url 'kategori' kategoriSlug=kategori.slug %}">{{ kategori.isim }}</a></li>
+                                            <!-- 'kategori' ismindeki urle, kategoriSlug'ı gönderiyorum-->
 
+                                      {% endfor %}
+                                  </ul>
+                            </div>
+{% endcomment %}
 
                     </ul>
 
                 </div>
+
+                <div class="card" >
+                      <div class="card-header bg-dark font-monospace text-black-50 text-center">
+                       <span class="text-white lead "> Kategoriler</span>
+                      </div>
+                      <ul class="list-group list-group-flush">
+                        {% for kategori in kategoriler %}
+                            <li><a class="list-group-item list-group-item-action text-sm-center"
+                                   href="{% url 'kategori' kategoriSlug=kategori.slug %}">{{ kategori.isim }}
+                            </a></li>
+                                <!-- 'kategori' ismindeki urle, kategoriSlug'ı gönderiyorum-->
+
+                            {% endfor %}
+                      </ul>
+                </div>
+
 
     </div>
