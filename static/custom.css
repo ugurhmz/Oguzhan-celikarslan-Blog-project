@@ -1,4 +1,10 @@
 
+.selamlar {
+    width:200px;
+    height:200px;
+    background-color:red;
+}
+
 .card {
     font-size: 1em;
     overflow: hidden;
@@ -8,12 +14,3 @@
     margin-top:20px;
 }
 
-
-
-#footer {
-    position:relative;
-    width:100%;
-    top:4.2rem;
-    margin-bottom:0;
-    bottom:0px;
-}
