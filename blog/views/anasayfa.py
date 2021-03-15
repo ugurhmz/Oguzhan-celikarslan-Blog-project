@@ -29,3 +29,9 @@ def anasayfa(request):
         'yazilar':paginator.get_page(sayfa)
     }
     return render(request,"pages/anasayfa.html", context=context)
+
+
+
+
+
+

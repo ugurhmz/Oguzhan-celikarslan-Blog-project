@@ -13,7 +13,11 @@
             alt="..."
           />
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">
+                <a href="{% url 'detay' slug=yazi.slug %}" >
+                    {{ yazi.baslik }}
+                </a>
+            </h5>
             <p class="card-text">
               {{ yazi.icerik |safe| truncatechars_html:200}}
             </p>

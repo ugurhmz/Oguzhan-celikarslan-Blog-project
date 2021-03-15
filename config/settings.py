@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'blog',
     #third-party
     'ckeditor',
+
 ]
 
 MIDDLEWARE = [
@@ -113,12 +114,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS =  [
-    BASE_DIR / "static"
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+
 ]
-
-
-
 
 CKEDITOR_CONFIGS = {
     'default': {
