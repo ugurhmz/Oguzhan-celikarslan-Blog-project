@@ -29,12 +29,12 @@
             {% if yorum.yazan.avatar %}
 
 
-            <img src="{{ yorum.yazan.avatar.url }}" class="rounded mr-3" width="75px" height="75px" alt="">
+    <img src="{{ yorum.yazan.avatar.url }}" class="rounded mr-3" width="75px" height="75px" alt="">
 
-            {% else %}
-         <img src="{% static 'images/no-avatar.jpg' %}" class="rounded mr-3" width="75px" height="75px" alt="">
+    {% else %}
+ <img src="{% static 'images/no-avatar.jpg' %}" class="rounded mr-3" width="75px" height="75px" alt="">
 
-            {% endif %}
+    {% endif %}
 
         </div>
 
@@ -49,8 +49,5 @@
 {% empty %}
     <p>Bu yazı için hiç yorum yapılmamış.</p>
 
-
   {% endfor %}
-
-
 {% endblock %}

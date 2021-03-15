@@ -1,11 +1,26 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
+from blog.forms import IletisimForm
 
 
 
 def iletisim(request):
-  context= {
-    'key':'Başlık içerik naber'
-  }
+      form = IletisimForm()
 
-  return render(request,"pages/iletisim.html", context=context)
+      if request.method =="POST":
+          form =IletisimForm(request.POST) #buradaki veriyi alıyor, forma gönderiyor.
+          if form.is_valid():
+            # iletisim = IletisimModel() #Çekmek istenilen veri
+            # iletisim.email = form.cleaned_data['email']
+            # iletisim.isim_soyisim = form.cleaned_data['isim_soyisim']
+            # iletisim.mesaj = form.cleaned_data['mesaj']
+            #iletisim.save()
+
+            form.save() #ModelForm'un sağladığı -> kendisi hallediyor.
+            return redirect('anasayfa')
+
+
+      context= {
+        'form':form
+      }
+
+      return render(request,"pages/iletisim.html", context=context)
