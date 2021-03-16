@@ -68,6 +68,14 @@
         <div class="card-title">
             <h5 class="card-title">{{ yorum.yazan.username }}</h5>
             <p class="card-text">{{ yorum.yorum }}</p>
+
+            {%  if request.user == yorum.yazan or request.user == yazi.yazar %}
+                 <p ><a href="{% url 'yorum-sil' id=yorum.id %}"
+                        class="btn btn-outline-danger  position-absolute bottom-0 end-0 m-2">
+                Yorum Sil
+            </a></p>
+
+            {% endif %}
         </div>
 
     </div>
