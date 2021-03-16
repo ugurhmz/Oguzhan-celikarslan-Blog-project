@@ -13,7 +13,13 @@
                           <a href="#" class="list-group-item list-group-item-action">Profil Düzenle</a>
 
                           <a href="#" class="list-group-item list-group-item-action ">Şifre Değiştir</a>
-                          <a href="#" class="list-group-item list-group-item-action ">Yazı Ekle</a>
+                          <a href="{% url 'yazi-ekle' %}" class="list-group-item list-group-item-action
+
+                            {% if 'yazi-ekle' in request.path %} active {% endif %}
+
+                        ">
+                              Yazı Ekle
+                          </a>
 
                           <a class="list-group-item list-group-item-action
 

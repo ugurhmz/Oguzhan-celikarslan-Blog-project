@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Yazi Guncelle {% endblock %}
+
+{% block content %}
+
+    <form enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            {{ form.media }} <!--ckeditor gelsin-->
+            {{ form|crispy}}
+
+        <input type="submit" class="w-50 mt-5 btn btn-outline-success" value="Yazi Güncelle">
+
+    </form>
+{% endblock %}
