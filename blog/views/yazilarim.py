@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 def yazilarim(request):     #bana giriş yapmış kullanıcının yazıları lazım.
     yazilar = request.user.yazilar.order_by('-id') # #related_name ile yazarın bütün yazılarıan eriştik
     sayfa = request.GET.get('sayfa')
-    paginator =Paginator(yazilar,2)
+    paginator =Paginator(yazilar,5)
 
 
     context = {
