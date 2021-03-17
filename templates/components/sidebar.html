@@ -8,49 +8,63 @@
                     </div>
 
 
-            {% if request.user.is_authenticated %}  <!-- context'ten gelen: request kısmı-->
-                    <div class="list-group">
-                          <a href="#" class="list-group-item list-group-item-action">Profil Düzenle</a>
+        {% if request.user.is_authenticated %}   <!-- context'ten gelen: request kısmı-->
+            <div class="list-group">
+                  <a href="{% url 'profil-guncelle' %}"
+                     class="list-group-item list-group-item-action
+                  {% if 'profil-guncelle' in request.path %}
+                      active
+                   {% endif %}
+                 " >Profil Düzenle</a>
 
-                          <a href="{% url 'sifre-degistir' %}"
-                             class="list-group-item list-group-item-action
-                            {% if 'sifre-degistir' in request.path %} active {% endif %}"
-                          >
-                              Şifre Değiştir
-                          </a>
+                  <a href="{% url 'sifre-degistir' %}"
+                     class="list-group-item list-group-item-action
+                    {% if 'sifre-degistir' in request.path %} active {% endif %}"
+                  >
+                      Şifre Değiştir
+                  </a>
 
 
 
-                          <a href="{% url 'yazi-ekle' %}" class="list-group-item list-group-item-action
+                  <a href="{% url 'yazi-ekle' %}"
+                     class="list-group-item list-group-item-action
 
-                            {% if 'yazi-ekle' in request.path %} active {% endif %}
+                    {% if 'yazi-ekle' in request.path %} active {% endif %}
 
-                        ">
-                              Yazı Ekle
-                          </a>
+                ">
+                      Yazı Ekle
+                  </a>
 
-                          <a class="list-group-item list-group-item-action
+                  <a class="list-group-item list-group-item-action
 
-                                {% if 'yazilarim' in request.path %} active {% endif %}"
-                             href="{% url 'yazilarim' %}">
-                              Yazılarım
-                          </a>
+                        {% if 'yazilarim' in request.path %} active {% endif %}"
+                     href="{% url 'yazilarim' %}">
+                      Yazılarım
+                  </a>
 
-                        <a href="{% url 'cikis' %}" class="list-group-item list-group-item-action">
-                                Çıkış
-                        </a>
+                <a href="{% url 'cikis' %}"
+                   class="list-group-item list-group-item-action">
+                        Çıkış
+                </a>
 
-                    </div>
-            {% else %}
+            </div>
+     {% else %}
 
-                    <div class="list-group" style="border-radius: 0;">
-                      <a href="#" class="list-group-item list-group-item-action bg-light text-warning">
-                          Login
-                      </a>
+        <div class="list-group" style="border-radius: 0;">
+          <a href="{% url 'giris' %}"
+             class="list-group-item list-group-item-action bg-dark text-warning">
+              Giriş Yap
+          </a>
 
-                    </div>
+         <a href="{% url 'kayit' %}"
+            class="list-group-item list-group-item-action bg-dark
+            text-warning border-top">
+              Kayıt Ol
+          </a>
 
-            {% endif %}
+        </div>
+
+     {% endif %}
 
 
 
