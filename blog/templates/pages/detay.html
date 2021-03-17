@@ -38,7 +38,7 @@
    <form method="POST">
         {% csrf_token %}
 
-        {{ yorum_ekle_form | crispy}}
+        {{ yorum_ekleme_formu|crispy }}
         <input type="submit" class="btn btn-primary my-3" value="Yorum Yap">
 
     </form>
