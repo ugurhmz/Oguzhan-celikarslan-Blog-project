@@ -48,6 +48,26 @@
 
 {% endif %}
 
+   {% if messages %}
+
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+
+
+
+
+{% endif %}
+
+
+
+
  {% for yorum in yorumlar %}
 
      <div class="card">
