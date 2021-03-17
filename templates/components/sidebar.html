@@ -12,7 +12,15 @@
                     <div class="list-group">
                           <a href="#" class="list-group-item list-group-item-action">Profil Düzenle</a>
 
-                          <a href="#" class="list-group-item list-group-item-action ">Şifre Değiştir</a>
+                          <a href="{% url 'sifre-degistir' %}"
+                             class="list-group-item list-group-item-action
+                            {% if 'sifre-degistir' in request.path %} active {% endif %}"
+                          >
+                              Şifre Değiştir
+                          </a>
+
+
+
                           <a href="{% url 'yazi-ekle' %}" class="list-group-item list-group-item-action
 
                             {% if 'yazi-ekle' in request.path %} active {% endif %}
