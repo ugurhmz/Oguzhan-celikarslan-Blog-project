@@ -8,12 +8,6 @@ import logging
 
 logger = logging.getLogger('konu_okuma')
 
-
-
-
-
-
-
 class DetayView(View): #View -> Çeşitli Http metodlarına karşın cevap üretir.
         http_method_names=['get','post']
         yorum_ekleme_formu = YorumEkleModelForm
