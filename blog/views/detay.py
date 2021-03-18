@@ -4,6 +4,16 @@ from blog.forms import YorumEkleModelForm
 from django.views import View
 from django.contrib import messages
 
+import logging
+
+logger = logging.getLogger('konu_okuma')
+
+
+
+
+
+
+
 class DetayView(View): #View -> Çeşitli Http metodlarına karşın cevap üretir.
         http_method_names=['get','post']
         yorum_ekleme_formu = YorumEkleModelForm
@@ -11,6 +21,9 @@ class DetayView(View): #View -> Çeşitli Http metodlarına karşın cevap üret
 
         def get(self,request,slug):
             yazi = get_object_or_404(YazilarModel, slug=slug)
+            if request.user.is_authenticated:
+                logger.info('konu okundu : '+request.user.username)
+
             yorumlar =yazi.yorumlar.all()
 
             context = {
