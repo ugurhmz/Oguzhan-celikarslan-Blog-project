@@ -16,6 +16,7 @@ def iletisim(request):
             #iletisim.save()
 
             form.save() #ModelForm'un sağladığı -> kendisi hallediyor.
+            form.send_email(mesaj=form.cleaned_data.get('mesaj'))
             return redirect('anasayfa')
 
 
