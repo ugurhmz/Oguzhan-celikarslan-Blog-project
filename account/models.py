@@ -24,7 +24,7 @@ class CustomUserModel(AbstractUser): #AbbtractUser içindeki her şeye sahibim �
     (1)Django senin kullandığın default User modelini, biz kullanmak istemiyoruz.
     Bunun yerine Kendi hazırlamış olduğumuz(+ avatar) 'lı olanı kullanmak istiyoruz.
     
-    (2)  Root(config) -> settings.py en alta git
+    (2)  Root(config) -> base.py en alta git
     
     (3)  AUTH_USER_MODEL = 'account.CustomUserModel'          # Aynen böyle eklke
     
