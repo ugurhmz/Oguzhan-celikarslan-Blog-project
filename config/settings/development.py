@@ -2,7 +2,7 @@ from .base import *
 
 ALLOWED_HOSTS = ['*'] #dışarıdan herkesin istek yapabilmesi
 
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 
 #developmentte şifreyi valide etme
