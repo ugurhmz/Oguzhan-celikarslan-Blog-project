@@ -6,7 +6,7 @@ from .base import *
 
 
 
-ALLOWED_HOSTS = ['www.sanayazilarim.com','127.0.0.1'] #dışarıdan sadece bu istek yapabilmesi
+ALLOWED_HOSTS = ['ugurhmz.com','127.0.0.1','3.23.98.144'] #dışarıdan sadece bu istek yapabilmesi
 DEBUG = config('DEBUG', default=False, cast=bool)
 #production ortamında şifreyi valid et
 # Password validation
@@ -33,8 +33,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'prod.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('DB_NAME'),
+        'USER':config('DB_USER'),
+        'PASSWORD':config('DB_PASSWORD'),
+        'HOST':'localhost',
+        'PORT':'5432',
     }
 }
 
