@@ -6,7 +6,7 @@ from .base import *
 
 
 
-ALLOWED_HOSTS = ['ugurhmz.com','127.0.0.1','3.23.98.144'] #dışarıdan sadece bu istek yapabilmesi
+ALLOWED_HOSTS = ['ugurhmz.com','127.0.0.1','3.23.98.144','ugurhmz.herokuapp.com'] #dışarıdan sadece bu istek yapabilmesi
 DEBUG = config('DEBUG', default=False, cast=bool)
 #production ortamında şifreyi valid et
 # Password validation
